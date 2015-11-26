@@ -54,7 +54,7 @@ $wgDBmysql5 = false;
 
 ## Shared memory and caching settings
 $wgMainCacheType    = CACHE_ACCEL;
-#$wgMemCachedServers = array();     #TODO
+$wgMemCachedServers = array();     #TODO
 $wgMessageCacheType = CACHE_ACCEL;
 $wgUseLocalMessageCache = true;
 $wgCacheDirectory = "$IP/cache";
@@ -64,10 +64,12 @@ $wgUseGzip = true;
 $wgEnableSidebarCache = true;
 $wgRevisionCacheExpiry = 5*24*36000;
 $wgParserCacheExpireTime = 14*24*36000;
+$wgSessionsInObjectCache = true;
 
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
 $wgEnableUploads  = true;
+$wgGenerateThumbnailOnParse = false;
 $wgUseImageMagick = true;
 $wgImageMagickConvertCommand = "/usr/bin/convert";
 
@@ -124,6 +126,7 @@ $wgMinimalPasswordLength = 8;
 $wgExportAllowListContributors = true;
 $wgExportFromNamespaces = true;
 $wgTiffThumbnailType = array('png', 'image/png');
+$wgShowArchiveThumbnails = false;
 $wgAllowTitlesInSVG = true;
 $wgMimeDetectorCommand = "file --brief --mime";
 $wgVerifyMimeType = false;
@@ -382,11 +385,15 @@ $wgGroupPermissions['sysop']['abusefilter-private'] = true;
 $wgGroupPermissions['sysop']['abusefilter-modify-restricted'] = true;
 $wgGroupPermissions['sysop']['abusefilter-revert'] = true;
 
+/* disabling for now, We have no spam problem any more and i believe it slows our wiki!
+dennis - 2015-11-24
 require_once "$IP2/extensions/TorBlock/TorBlock.php";
 $wgGroupPermissions['user']['torunblocked'] = false;
 $wgTorDisableAdminBlocks = false; 
 $wgTorAutoConfirmCount = 10;
 $wgTorAutoConfirmAge = 86400*5;
+*/
+
 
 require_once "$IP/extensions/mediawiki-bugzilla-master/Bugzilla.php";
 
