@@ -64,7 +64,7 @@ $wgUseGzip = true;
 $wgEnableSidebarCache = true;
 $wgRevisionCacheExpiry = 5*24*36000;
 $wgParserCacheExpireTime = 14*24*36000;
-$wgSessionsInObjectCache = true;
+#$wgSessionsInObjectCache = true;
 
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
@@ -429,6 +429,10 @@ $wgTimelineSettings->ploticusCommand = "/usr/bin/pl";
 require_once "$IP2/extensions/BounceHandler/BounceHandler.php";
 
 require_once "$IP2/extensions/MapSources/MapSources.php";
+
+require_once "$IP2/extensions/UserMerge/UserMerge.php";
+// By default nobody can use this function, enable for bureaucrat?
+$wgGroupPermissions['bureaucrat']['usermerge'] = true;
 
 require_once "$IP2/extensions/CodeMirror/CodeMirror.php";
 $wgDefaultUserOptions['usecodemirror'] = 1;
