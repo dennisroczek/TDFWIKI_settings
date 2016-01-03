@@ -69,7 +69,7 @@ $wgParserCacheExpireTime = 14*24*36000;
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
 $wgEnableUploads  = true;
-$wgGenerateThumbnailOnParse = false;
+$wgGenerateThumbnailOnParse = true; //TODO: needs a 404 parser, see https://www.mediawiki.org/wiki/Manual:$wgGenerateThumbnailOnParse
 $wgUseImageMagick = true;
 $wgImageMagickConvertCommand = "/usr/bin/convert";
 
@@ -395,13 +395,13 @@ $wgTorAutoConfirmAge = 86400*5;
 */
 
 
-require_once "$IP/extensions/mediawiki-bugzilla-master/Bugzilla.php";
+require_once "$IP/extensions/Bugzilla/Bugzilla.php";
 
 #require_once "$IP/extensions/Bugzilla-dennis/Bugzilla.php";
 $wgBugzillaRESTURL     = 'https://bugs.documentfoundation.org/xmlrpc.cgi'; // The URL for your Bugzilla API installation
 $wgBugzillaURL         = 'https://bugs.documentfoundation.org'; // The URL for your Bugzilla installation
 $wgBugzillaTagName     = 'bugzilla'; // The tag name for your Bugzilla installation (default: 'bugzilla')
-$wgBugzillaMethod      = 'XML-RPC'; // XML-RPC and JSON-RPC may be supported later
+$wgBugzillaMethod      = 'xml-rpc'; // XML-RPC and JSON-RPC may be supported later
 
 # added by floeff 2013-11-19
 $wgHitcounterUpdateFreq = 1000;
