@@ -2,6 +2,9 @@
 # Uncomment when upgrading
 #$wgReadOnly = 'This wiki is currently in being upgraded to a newer software version';
 
+# Dennis Roczek: emergency lock down for new accounts: simply uncomment
+#$wgGroupPermissions['*']['createaccount'] = false;
+
 # Protect against web entry
 if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
@@ -225,6 +228,9 @@ $wgFileExtensions[] = 'fodg';
 $wgFileExtensions[] = 'fodp';
 $wgFileExtensions[] = 'epub';
 $wgFileExtensions[] = 'jpg2';
+$wgFileExtensions[] = 'pages';
+$wgFileExtensions[] = 'numbers';
+$wgFileExtensions[] = 'keynote';
 
 $wgDefaultUserOptions['ccmeonemails'] = true;
 $wgDefaultUserOptions['enotifwatchlistpages'] = true;
@@ -416,6 +422,10 @@ require_once "$IP2/extensions/Interwiki/Interwiki.php";
 $wgGroupPermissions['sysop']['interwiki'] = true;
 $wgUseRCPatrol=false;
 
+#Redmine#1881
+$wgGroupPermissions['patrolled']['autopatrol'] = true;
+$wgGroupPermissions['patrolled']['patrol'] = true;
+
 #todo when upgrading
 require_once "$IP2/extensions/AddHTMLMetaAndTitle/Add_HTML_Meta_and_Title.php";
 
@@ -439,6 +449,9 @@ $wgGroupPermissions['bureaucrat']['usermerge'] = true;
 
 require_once "$IP2/extensions/CodeMirror/CodeMirror.php";
 $wgDefaultUserOptions['usecodemirror'] = 1;
+
+require_once "$IP/extensions/CleanChanges/CleanChanges.php";
+$wgDefaultUserOptions['usenewrc'] = 1;
 
 #error_reporting( -1 );
 #ini_set( 'display_errors', 1 );
